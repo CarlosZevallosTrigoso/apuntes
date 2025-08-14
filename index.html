@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Archivo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            width: 100%;
+            margin: 0;
+            padding: 40px 20px 40px 80px;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .blog-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .current-date {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .posts-count {
+            margin-bottom: 30px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .posts-list {
+            margin-bottom: 40px;
+        }
+
+        .post-item {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .post-date {
+            color: #666;
+            margin-right: 8px;
+        }
+
+        .post-link {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+
+        .post-link:hover {
+            color: #004499;
+        }
+
+        .info-link {
+            display: inline-block;
+            margin: 30px 0 40px 0;
+            color: #0066cc;
+            text-decoration: underline;
+            font-size: 16px;
+        }
+
+        .info-link:hover {
+            color: #004499;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .links-list {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .links-list a {
+            color: #0066cc;
+            text-decoration: underline;
+            margin-right: 8px;
+        }
+
+        .links-list a:hover {
+            color: #004499;
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            body {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="blog-title">Mi Blog Personal</h1>
+        <div class="current-date" id="current-date"></div>
+    </header>
+
+    <main>
+        <div class="posts-count">
+            Número de publicaciones: <span id="post-count">3</span>
+        </div>
+
+        <div class="posts-list">
+            <div class="post-item">
+                <span class="post-date">Fecha:</span>
+                <a href="posts/mi-primer-post.html" class="post-link">Mi primer post del blog</a>
+            </div>
+            <div class="post-item">
+                <span class="post-date">Fecha:</span>
+                <a href="posts/segundo-articulo.html" class="post-link">Segundo artículo sobre tecnología</a>
+            </div>
+            <div class="post-item">
+                <span class="post-date">Fecha:</span>
+                <a href="posts/reflexiones.html" class="post-link">Reflexiones sobre el desarrollo web</a>
+            </div>
+        </div>
+
+        <a href="info.html" class="info-link">+info</a>
+
+        <div class="section">
+            <div class="section-title">enlaces importantes:</div>
+            <div class="links-list">
+                <a href="info.html">acerca de</a>,
+                <a href="archivo.html">archivo</a>,
+                <a href="contacto.html">contacto</a>,
+                <a href="#">proyectos</a>...
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Actualizar fecha actual
+        const currentDate = new Date().toLocaleDateString('es-ES', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        document.getElementById('current-date').textContent = currentDate;
+    </script>
+</body>
+</html>
