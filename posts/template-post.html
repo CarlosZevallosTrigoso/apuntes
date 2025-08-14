@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título del Post - Mi Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <article>
+        <div class="post-meta">
+            <div class="meta-item">fecha: DD de MMMM de 2025</div>
+            <div class="meta-item">Nro de palabras: XXX</div>
+            <div class="meta-item">
+                ancho de párrafo: 
+                <button id="width-toggle" class="width-toggle">corto</button>
+            </div>
+        </div>
+
+        <h1 class="post-title">Título del Post</h1>
+
+        <div class="post-content" id="post-content">
+            <h2 class="content-title">Texto</h2>
+            
+            <div class="post-text">
+                <p>Aquí va el contenido del post...</p>
+                
+                <p>Más párrafos...</p>
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-link">← Volver al blog</a>
+    </article>
+
+    <script>
+        document.getElementById('width-toggle').addEventListener('click', function() {
+            const content = document.getElementById('post-content');
+            const button = this;
+            
+            if (button.textContent === 'corto') {
+                content.classList.add('narrow');
+                button.textContent = 'largo';
+            } else {
+                content.classList.remove('narrow');
+                button.textContent = 'corto';
+            }
+        });
+    </script>
+</body>
+</html>
