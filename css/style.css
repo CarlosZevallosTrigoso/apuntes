@@ -8,12 +8,13 @@
 
 body {
     font-family: 'Newsreader', serif;
-    line-height: 1.6;
+    line-height: 1.5;
     color: #333;
     width: 100%;
     margin: 0;
     padding: 40px 20px 40px 80px;
     background-color: #f5f5f5;
+    font-size: 20px;
 }
 
 /* Header */
@@ -33,14 +34,14 @@ body {
 }
 
 .current-date {
-    font-size: 16px;
+    font-size: 18px;
     color: #666;
 }
 
 /* Posts list en página principal */
 .posts-count {
     margin-bottom: 30px;
-    font-size: 16px;
+    font-size: 20px;
     color: #666;
 }
 
@@ -50,7 +51,7 @@ body {
 
 .post-item {
     margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .post-date {
@@ -72,7 +73,7 @@ body {
     margin: 30px 0 40px 0;
     color: #0066cc;
     text-decoration: underline;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .info-link:hover {
@@ -84,13 +85,13 @@ body {
 }
 
 .section-title {
-    font-size: 16px;
+    font-size: 20px;
     color: #000;
     margin-bottom: 8px;
 }
 
 .links-list {
-    font-size: 16px;
+    font-size: 20px;
     color: #666;
 }
 
@@ -107,7 +108,7 @@ body {
 /* Estilos para posts individuales */
 .post-meta {
     margin-bottom: 30px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.4;
 }
 
@@ -128,7 +129,7 @@ body {
     width: calc(100% - 40px);
     max-width: none;
     transition: width 0.3s ease;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .post-content.narrow {
@@ -137,7 +138,7 @@ body {
 }
 
 .content-title {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 600;
     color: #000;
     margin-bottom: 20px;
@@ -172,7 +173,7 @@ body {
     margin-top: 40px;
     color: #0066cc;
     text-decoration: underline;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .back-link:hover {
