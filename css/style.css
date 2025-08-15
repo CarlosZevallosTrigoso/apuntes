@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600&display=swap');
 
 * {
     margin: 0;
@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Archivo', sans-serif;
+    font-family: 'Newsreader', serif;
     line-height: 1.6;
     color: #333;
     width: 100%;
