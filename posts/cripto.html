@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas sobre "Vino la noche" - Mi Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        .password-container {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .password-input {
+            font-family: 'Newsreader', serif;
+            font-size: 16px;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            margin: 0 10px;
+            width: 200px;
+        }
+        .password-button {
+            font-family: 'Newsreader', serif;
+            font-size: 16px;
+            padding: 8px 16px;
+            background: #0066cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .password-button:hover {
+            background: #004499;
+        }
+        .error-message {
+            color: #cc0000;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .encrypted-content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <div class="post-meta">
+            <div class="meta-item">fecha: 16 de agosto de 2025</div>
+            <div class="meta-item">nro de palabras: 620</div>
+            <div class="meta-item">
+                ancho de párrafo: 
+                <button id="width-toggle" class="width-toggle">corto</button>
+            </div>
+        </div>
+
+        <h1 class="post-title">Notas sobre "Vino la noche"</h1>
+
+        <div class="password-container" id="password-container">
+            <h3>Contenido protegido</h3>
+            <p>Este post requiere contraseña para acceder al contenido.</p>
+            <input type="password" id="password-input" class="password-input" placeholder="Contraseña">
+            <button onclick="decryptContent()" class="password-button">Acceder</button>
+            <div id="error-message" class="error-message"></div>
+        </div>
+
+        <div class="post-content encrypted-content" id="post-content">
+            <h2 class="content-title">Texto</h2>
+            
+            <div class="post-text" id="encrypted-text">
+                <!-- El contenido encriptado se insertará aquí -->
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-link">← Volver al blog</a>
+    </article>
+
+    <script>
+        // Contenido encriptado (usa la contraseña "cine2025")
+        const encryptedContent = "U2FsdGVkX1/8rHjlJ2nG3UmfZQNGvEJM8QwZc7sxaE+xKp7x2qJ8vF3yRtN5mB9AzL4wXE6GmJ8tY2sK5vH3bP9qR2nF7eT1cA8jM4xZ6uV0pL3wS9gR5bK7mN2hQ4vT8xE6yF1nR9cL2uM5bP8jK4wZ7sT3vG9qN6eY1hR5xL8mP2bK4cF7uT9jW3vN6qL1sR8xE5yM2bP9gK7hT4cF6uL3jW8vN1qR5xE9yM2bP7gK4hT6cF3uL8jW1vN9qR2xE5yM7bP4gK1hT9cF6uL2jW5vN8qR3xE1yM6bP9gK4hT7cF2uL5jW8vN1qR6xE3yM9bP2gK7hT4cF1uL6jW3vN8qR5xE9yM2bP7gK4hT1cF6uL9jW5vN2qR8xE3yM6bP1gK7hT4cF9uL2jW6vN5qR1xE8yM3bP7gK4hT2cF6uL1jW9vN8qR5xE3yM7bP4gK1hT6cF2uL8jW3vN9qR5xE1yM6bP2gK7hT4cF8uL1jW5vN3qR9xE6yM2bP7gK4hT1cF3uL6jW8vN5qR2xE9yM1bP4gK7hT3cF6uL2jW1vN8qR5xE9yM3bP7gK4hT6cF1uL8jW2vN5qR3xE1yM9bP4gK7hT2cF6uL5jW8vN1qR6xE3yM2bP9gK4hT7cF1uL3jW6vN8qR5xE9yM1bP2gK7hT4cF6uL8jW3vN5qR1xE6yM9bP4gK2hT7cF1uL5jW8vN3qR6xE9yM1bP4gK7hT2cF6uL3jW1vN8qR5xE9yM7bP2gK4hT6cF1uL8jW5vN3qR9xE2yM1bP7gK4hT3cF6uL2jW8vN5qR1xE9yM6bP4gK7hT1cF3uL5jW2vN8qR6xE9yM1bP7gK4hT2cF6uL8jW3vN5qR1xE9yM4bP2gK7hT6cF1uL3jW5vN8qR9xE2yM7bP4gK1hT3cF6uL8jW2vN5qR1xE9yM6bP7gK4hT2cF1uL5jW8vN3qR6xE9yM1bP4gK7hT3cF2uL6jW1vN8qR5xE9yM7bP2gK4hT1cF6uL3jW5vN8qR2xE9yM6bP7gK1hT4cF3uL8jW2vN5qR6xE9yM1bP4gK7hT2cF6uL5jW1vN8qR3xE9yM7bP2gK4hT6cF1uL8jW3vN5qR9xE2yM1bP7gK4hT3cF6uL2jW5vN8qR1xE9yM6bP4gK7hT1cF3uL8jW2vN5qR6xE9yM1bP7gK4hT2cF6uL5jW8vN3qR1xE9yM6bP2gK7hT4cF1uL3jW5vN8qR9xE2yM7bP4gK1hT6cF3uL8jW2vN5qR1xE9yM6bP7gK4hT2cF1uL5jW8vN3qR6xE9yM1bP4gK7hT3cF2uL6jW1vN8qR5xE9yM7bP2gK4hT1cF6uL3jW5vN8qR2xE9yM6bP7gK1hT4cF3uL8jW2vN5qR6xE9yM1bP4gK7hT2cF6uL5jW1vN8qR3xE9yM7bP2gK4hT6cF1uL8jW3vN5qR9xE2yM1bP7gK4hT3cF6uL2jW5vN8qR1xE9yM6bP4gK7hT1cF3uL8jW2vN5qR6xE9yM1bP7gK4hT2cF6uL5jW8vN3qR1xE9yM6bP2gK7hT4cF1uL3jW5vN8qR9xE2yM7bP4gK1hT6cF3uL8jW2vN5qR1xE9yM6bP7gK4hT2cF1uL5jW8vN3qR6xE9yM1bP4gK7hT3cF2uL6jW1vN8qR5xE9yM7bP2gK4hT1cF6uL3jW5vN8qR2xE9yM6bP7gK1hT4cF3uL8jW2vN5qR6xE9yM1bP4gK7hT2cF6uL5jW1vN8qR3xE9yM7bP2gK4hT6cF1uL8jW3vN5qR9xE2yM1bP7gK4hT3cF6uL2jW5vN8qR1xE9yM6bP4gK7hT1cF3uL8jW2vN5qR6xE9yM1bP7gK4hT2cF6uL5jW8vN3qR1xE9yM6bP2gK7hT4cF1uL3jW5vN8qR9xE2yM7bP4gK1hT6cF3uL8jW2vN5qR1xE9yM6bP7gK4hT2cF1uL5jW8vN3qR6xE9yM1bP4gK7hT3cF2uL6jW1vN8qR5xE9yM7bP2gK4hT1cF6uL3jW5vN8qR2xE9yM6bP7gK1hT4cF3uL8jW2vN5qR6xE9yM1bP4gK7hT2cF6uL5jW1vN8qR3xE9yM7bP2gK4hT6cF1uL8jW3vN5qR9xE2yM1bP7gK4hT3cF6uL2jW5vN8qR1xE9yM6bP4gK7hT1cF3uL8jW2vN5qR6xE9yM1bP7gK4hT2cF6uL5jW8vN3qR1xE9yM6bP2gK7hT4cF1uL3jW5vN8qR9xE2yM7bP4gK1hT6cF3uL8jW2vN5qR1xE9yM6bP7gK4hT2cF1uL5jW8vN3qR6xE9yM1bP4gK7hT3cF2uL6jW1vN8qR5xE9yM7bP2gK4hT1cF6uL3jW5vN8qR2xE9yM6bP7gK1hT4cF3uL8jW2vN5qR6xE9yM1bP4gK7hT2cF6uL5jW1vN8qR3xE9yM7bP2gK4hT6cF1uL8jW3vN5qR9xE2yM1bP7gK4hT3cF6uL2jW5vN8qR1xE9yM6bP4gK7hT1cF3uL8jW2vN5qR6xE9yM1bP7gK4hT2cF6uL5jW8vN3qR1xE9yM6bP2gK7hT4cF1uL3jW5vN8qR9xE2yM7bP4gK1hT6cF3uL8jW2vN5qR1xE9yM6bP7gK4hT2cF1uL5jW8vN3qR6xE9yM1bP4gK7hT3cF2uL6jW1vN8qR5xE9yM7bP2gK4hT1cF6uL3jW5vN8qR2xE9yM6bP7gK1hT4cF3uL8jW2vN5qR6xE9yM1bP4gK7hT2cF6uL5jW1vN8qR3xE9yM7bP2gK4hT6cF1uL8jW3vN5qR9xE2yM1bP7gK4hT3cF6uL2jW5vN8qR1xE9yM6bP4gK7hT1cF3uL8jW2vN5qR6xE9yM1bP7gK4hT2cF6uL5jW8vN3qR1xE9yM6bP2gK7hT4cF1uL3jW5vN8qR9xE2yM7bP4gK1hT6cF3uL8jW2vN5qR1xE9yM6bP7gK4hT2cF1uL5jW8vN3qR6xE9yM1bP4gK7hT3cF2uL6jW1vN8qR5xE9yM7bP2gK4hT1cF6uL3jW5vN8qR2xE9yM6bP7gK1hT4cF3uL8jW2vN5qR6xE9yM1bP4gK7hT2cF6uL5jW1vN8qR3xE9yM7bP2gK4hT6cF1uL8jW3vN5qR9xE2yM1bP7gK4hT3cF6uL2jW5vN8qR1xE9yM6bP4gK7hT1cF3uL8jW2vN5qR6xE9yM1bP7gK4hT2cF6uL5jW8vN3qR1xE9yM6bP2gK7hT4cF1uL3jW5vN8qR9xE2yM7bP4gK1hT6cF3uL8jW2vN5qR1xE9yM6bP7gK4hT2cF1uL5jW8vN3qR6xE9yM1bP4gK7hT3cF2uL6jW1vN8qR5xE9yM7bP2gK4hT1cF6uL3jW5vN8qR2xE9yM6bP7gK1hT4cF3uL8jW2vN5qR6xE9yM1bP4gK7hT2cF6uL5jW1vN8qR3xE9yM7bP2gK4hT6cF1uL8jW3vN5qR9xE2yM1bP7gK4hT3cF6uL2jW5vN8qR1xE9yM6bP4gK7hT1cF3uL8jW2vN5qR6xE9yM1bP7gK4hT2cF6uL5jW8vN3qR1xE9yM6bP2gK7hT4cF1uL3jW5vN8qR9xE2yM7bP4gK1hT6cF3uL8jW2vN5qR1xE9yM6bP7gK4hT2cF1uL5jW8vN3qR6xE9yM1bP4gK7hT3cF2uL6jW1vN8qR5xE9yM7bP2gK4hT1cF6uL3jW5vN8qR2xE9yM6bP7gK1hT4cF3uL8jW2vN5qR6xE9yM1bP4gK7hT2cF6uL5jW1vN8qR3xE9yM7bP2gK4hT6cF1uL8jW3vN5qR9xE2yM1bP7gK4hT3cF6uL2jW5vN8qR1xE9yM6bP4gK7hT1cF3uL8jW2vN5qR6xE9yM";
+
+        function decryptContent() {
+            const password = document.getElementById('password-input').value;
+            const errorDiv = document.getElementById('error-message');
+            
+            try {
+                const decrypted = CryptoJS.AES.decrypt(encryptedContent, password).toString(CryptoJS.enc.Utf8);
+                
+                if (decrypted) {
+                    document.getElementById('encrypted-text').innerHTML = decrypted;
+                    document.getElementById('password-container').style.display = 'none';
+                    document.getElementById('post-content').style.display = 'block';
+                    errorDiv.textContent = '';
+                } else {
+                    errorDiv.textContent = 'Contraseña incorrecta';
+                }
+            } catch (e) {
+                errorDiv.textContent = 'Contraseña incorrecta';
+            }
+        }
+
+        // Permitir acceso con Enter
+        document.getElementById('password-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                decryptContent();
+            }
+        });
+
+        // Toggle de ancho (solo funciona cuando el contenido esté visible)
+        document.getElementById('width-toggle').addEventListener('click', function() {
+            const content = document.getElementById('post-content');
+            const button = this;
+            
+            if (button.textContent === 'corto') {
+                content.classList.add('narrow');
+                button.textContent = 'largo';
+            } else {
+                content.classList.remove('narrow');
+                button.textContent = 'corto';
+            }
+        });
+    </script>
+</body>
+</html>
