@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas sobre "Vino la noche" - Mi Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <article>
+        <div class="post-meta">
+            <div class="meta-item">fecha: 16 de agosto de 2025</div>
+            <div class="meta-item">nro de palabras: 620</div>
+            <div class="meta-item">
+                ancho de párrafo: 
+                <button id="width-toggle" class="width-toggle">corto</button>
+            </div>
+        </div>
+
+        <h1 class="post-title">Notas sobre "Vino la noche"</h1>
+
+        <div class="post-content" id="post-content">
+            <h2 class="content-title">Texto</h2>
+            
+            <div class="post-text">
+                <p>Vi hace unos días la película "Vino la noche" de Paolo Tizón, un trabajo en género documental (si todavía vale usar el concepto) de 96 minutos. Estrenada en Lima el 8 de agosto en el Festival de Cine de Lima PUCP en la selección de la competencia Latinoamericana Documental. Además de ver la película, pude escuchar un poco sobre su realización en palabras del mismo director en la breve sesión de preguntas y respuestas que se armó pos-estreno. Creo que ya hay varias notas que dan más información importante sobre la misma: aquí, aquí y aquí, por ejemplo.</p>
+
+                <p>Esta es la sinópsis que encontré en la web del Festival:</p>
+
+                <p><em>Un grupo de jóvenes se enlista en un riguroso entrenamiento militar en las Fuerzas Armadas peruanas. Sueñan con convertirse en 'hombres de guerra' y anhelan el momento de combate real. Sin embargo, el enemigo es invisible y difícil de localizar. Se transforman de jóvenes aventureros en operadores especiales en medio del hermético mundo militar. En medio de la dureza, florecen la compasión y el cuidado entre ellos.</em></p>
+
+                <p>En este texto corto quiero reparar en algunas cosas de la obra en las que quedé pensando luego de verla. Nada particular sobre la obra como cine, en lo que otrxs podrán decir cosas más interesantes que yo; pero sí sobre aspectos visuales y su propuesta sobre las imágenes y más.</p>
+
+                <p><strong>Tres ideas:</strong></p>
+
+                <p><strong>1)</strong> Lo que el trabajo registra resuena claramente con la noción de disciplina elaborada por Foucault en su famosísimo trabajo "vigilar y castigar" (año), donde nos introduce en un espacio bastante análogo de formación del cuerpo y subjetividad del solado moderno. Focault describe en detalle aspectos formales del entrenamiento que se ven expresados en movimientos corporales, patrones, repeticiones, mandatos, etc… La película nos guía por un territorio similar, pero mediado por el dispositivo observacional del encuadre que recorre dichos cuerpos en formación. El sonido ayuda aquí a percibir el efecto "locucionario" (en sentido performativo) de la instrucción, que emana de la voz de un superior del que Tizón ha decidido "mostrar" poco. Esta figura iconizada, contrasta con una lectura que he oído por ahí sobre el proceso mostrado por la película: la idea de que este "desensibiliza" o "des-humaniza", transformando personas en máquinas-de-matar o algo así. Ante eso, propongo lo contrario: esta película nos pone al frente un proceso de humanización y sensibilización.</p>
+
+                <p><strong>2)</strong> La película refleja una versión interesante del paradigma neoliberal en el ámbito securitario. No hay mayores referencias al patriotismo ni nada que recuerde. Los individuos entran ahí, aparentemente, para cumplir metas personales, desarrollar intereses particulares, ubicarse en el mundo, etc… En las escenas de complicidad entre los participantes, ellos hablan de dinero, relaciones afectivas familiares y amorosas, valentía, muerte, etc… pero no recuerdo que hablen del Perú, de razones para defender la patria o, ni siquiera sobre el enemigo al que enfrentarán desde algún imaginario concreto relacionado a soberanía (invasores, por ejemplo). Pensando en el trabajo de Gisela Cánepa sobre neoliberalismo en el Perú; veo en esta película otra forma de "épica neoliberal" donde cada uno de estos sujetos se nos presentan como emprendedores en un terreno extraño; no es por eso extraño que se hable de ellos como "operadores" o "fuerzas especiales", un término que remite más al rendimiento y eficiencia que a patriotismo o heroísmo. La escena de graduación es un interesante ejemplo de ello.</p>
+
+                <p><strong>3)</strong> Un aspecto clave del tipo de formación que parecen recibir estas personas es que su entrenamiento es para desplegarse dentro de nuestro territorio. Es decir, el enemigo es un "enemigo interno". La idea de "fuerzas especiales", sin embargo, parece más bien emerger del modelo colonial y la lucha anti- movimientos de liberación nacional de los 50 (Argelia, Vietnam, etc). Algo así como guerrilleros profesionales occidentales entrenados para aniquilar a guerrilleros insurgentes del sur global. En este caso, en cambio, vemos al escenario de guerra ubicarse en un pedazo de selva peruana, representado como siempre: vacío e inhóspito. Si el objetivo del entrenamiento es reproducir, de manera controlada, los estresores de la guerra. En este caso, la violencia esperada proviene de adentro: resuena el mandato de la lucha antisubversiva. El enemigo está aquí y hay que matarlo. La película hace un excelente trabajo en sugerir una experiencia sensorial relacionada a dicho proceso abyecto: entrenar para matar a otro peruano; un peruano-enemigo, invisible y que aparece de noche, se esconde, amenaza, acecha, etc… el enemigo es un poco todos, entonces.</p>
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-link">← Volver al blog</a>
+    </article>
+
+    <script>
+        document.getElementById('width-toggle').addEventListener('click', function() {
+            const content = document.getElementById('post-content');
+            const button = this;
+            
+            if (button.textContent === 'corto') {
+                content.classList.add('narrow');
+                button.textContent = 'largo';
+            } else {
+                content.classList.remove('narrow');
+                button.textContent = 'corto';
+            }
+        });
+    </script>
+</body>
+</html>
