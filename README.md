@@ -44,23 +44,6 @@ Este blog está vinculado a [Rizoma.pe](https://rizoma.pe/), una plataforma educ
 - **Responsive**: Adaptado para dispositivos móviles
 - **Funcionalidad de ancho**: Los posts permiten alternar entre párrafos anchos y estrechos para mejorar la legibilidad
 
-## Cómo agregar un nuevo post
-
-1. **Copia el template**: Duplica `posts/template-post.html` con un nuevo nombre
-2. **Actualiza los metadatos**:
-   - Fecha de publicación
-   - Número de palabras
-   - Título del post
-3. **Agrega el contenido**: Reemplaza el contenido de ejemplo con tu texto
-4. **Actualiza el index**: Agrega una nueva entrada en `index.html`:
-   ```html
-   <div class="post-item">
-       <span class="post-date">DD/MM/YYYY:</span>
-       <a href="posts/tu-nuevo-post.html" class="post-link">Título del post</a>
-   </div>
-   ```
-5. **Actualiza el contador**: Incrementa el número en `<span id="post-count">X</span>`
-
 ## Funcionalidades
 
 ### Toggle de ancho de párrafo
@@ -70,14 +53,6 @@ Cada post incluye un botón que permite alternar entre:
 
 ### Fecha automática
 La página principal muestra automáticamente la fecha actual en español.
-
-## Desarrollo local
-
-Para trabajar con el sitio localmente:
-
-1. Clona o descarga los archivos
-2. Abre `index.html` en tu navegador
-3. Para desarrollo, se recomienda usar un servidor local (ej: Live Server en VS Code)
 
 ## Contacto
 
