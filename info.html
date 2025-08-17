@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>+info - apuntes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <article>
+        <div class="post-meta">
+            <div class="meta-item">fecha: 17 de agosto de 2025</div>
+            <div class="meta-item">nro de palabras: 180</div>
+            <div class="meta-item">
+                ancho de párrafo: 
+                <button id="width-toggle" class="width-toggle">corto</button>
+            </div>
+        </div>
+
+        <h1 class="post-title">+info</h1>
+
+        <div class="post-content" id="post-content">
+            
+            <div class="post-text">
+                <p>En este espacio iré subiendo, en forma textual, algunas ideas y reflexiones sobre las imágenes como fenómeno social, en relación a productos culturales o eventos que observo y experimento en el Perú (y el mundo) contemporáneo. Los textos no buscan ni llegan a ser críticas, son más como instancias de exploración de ideas a partir de ciertos marcos semióticos y antropológicos.</p>
+
+                <p>Soy Carlos Zevallos Trigoso (<a href="https://www.instagram.com/ca.zt/" class="post-link">ig</a>), doctorando en antropología, antropólogo visual y comunicador por la PUCP. Este espacio también me ayuda a poner en texto algunas ideas que vengo formulando en mi proyecto de investigación doctoral.</p>
+
+                <p>Siéntanse libres de contactarme al correo <a href="mailto:czevallost@rizoma.pe" class="post-link">czevallost@rizoma.pe</a> para cualquier cosa relacionada.</p>
+
+                <p>También lxs invito a seguir a <a href="https://www.instagram.com/rizoma.pe/" class="post-link">Rizoma.pe en IG</a> y ver la web: <a href="https://rizoma.pe/" class="post-link">rizoma.pe</a>, es una plataforma desde donde publicamos convocatorias a cursos sobre temas afines a los de este blog (y otros).</p>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">← Volver al blog</a>
+    </article>
+
+    <script>
+        document.getElementById('width-toggle').addEventListener('click', function() {
+            const content = document.getElementById('post-content');
+            const button = this;
+            
+            if (button.textContent === 'corto') {
+                content.classList.add('narrow');
+                button.textContent = 'largo';
+            } else {
+                content.classList.remove('narrow');
+                button.textContent = 'corto';
+            }
+        });
+    </script>
+</body>
+</html>
